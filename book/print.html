@@ -1,0 +1,1165 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Building Mobile Apps with Dart &amp; Flutter</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-cee596f8.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-fa2867d6.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Building Mobile Apps with Dart &amp; Flutter</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="building-mobile-apps-with-dart--flutter"><a class="header" href="#building-mobile-apps-with-dart--flutter">Building Mobile Apps with Dart &amp; Flutter</a></h1>
+<p><em>A beginner-first, project-driven path from writing your first line of code to building and presenting a working mobile application.</em></p>
+<p>This book is designed for students with little or no programming experience. It combines small programming experiments, guided explanation, visual interface building, real data, and independent projects.</p>
+<p>The central idea is simple: <strong>touch the code, observe what it does, understand why, then build something with it.</strong></p>
+<blockquote>
+<p>This is a living teaching material. Verify examples against the current stable Dart and Flutter documentation before each cohort.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="foreword"><a class="header" href="#foreword">Foreword</a></h1>
+<p>This bootcamp is not meant to make students memorize a list of Dart keywords or Flutter widgets. It is designed to help them become comfortable enough with code to experiment, read errors, make changes, and build a small application without a tutor dictating every line.</p>
+<p>The course deliberately introduces concepts when students have a reason to use them. It alternates between small, safe experiments and visible outcomes, then revisits the same ideas in more realistic projects.</p>
+<p>The instructor’s role is not to prevent every mistake. It is to make mistakes safe, observable, and useful.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<h2 id="who-this-book-is-for"><a class="header" href="#who-this-book-is-for">Who this book is for</a></h2>
+<p>This book assumes no previous programming experience. Students may have encountered computer science terminology in university, but they should not need to know how to write a program, understand object-oriented programming, or use Flutter before beginning.</p>
+<h2 id="the-journey"><a class="header" href="#the-journey">The journey</a></h2>
+<ol>
+<li>Learn to change and reason about code.</li>
+<li>Use Dart to express data, decisions, repetition, and reusable logic.</li>
+<li>learn how Flutter turns Dart code into a user interface.</li>
+<li>Build screens, forms, and navigation.</li>
+<li>Connect the UI to remote data and authentication.</li>
+<li>Complete a guided project, then prepare and present an independent one.</li>
+</ol>
+<h2 id="what-students-should-be-able-to-do-at-the-end"><a class="header" href="#what-students-should-be-able-to-do-at-the-end">What students should be able to do at the end</a></h2>
+<p>Students should be able to explain the main files in a small Flutter application, modify and debug Dart code, build multiple screens from a design, handle basic user input, fetch and display remote data, use Supabase Auth and database access with appropriate policies, run basic checks, and publish their source code to GitHub.</p>
+<p>This is an introductory outcome, not a claim of production-level expertise. Advanced architecture, large-scale state management, store publishing, and native platform integration remain next steps.</p>
+<h2 id="how-the-material-is-organized"><a class="header" href="#how-the-material-is-organized">How the material is organized</a></h2>
+<p>The book uses the Rust Book’s broad information architecture:</p>
+<ul>
+<li><strong>Concept pages</strong> explain one idea through small examples.</li>
+<li><strong>Project pages</strong> guide students through an outcome that requires several ideas together.</li>
+<li><strong>Appendices</strong> provide cheat sheets, checklists, and links for later review.</li>
+</ul>
+<p>Not every lesson has exactly the same shape. A page about null safety should not read like a project walkthrough, and a project should not read like a dictionary of widgets.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="before-you-begin"><a class="header" href="#before-you-begin">Before You Begin</a></h1>
+<h2 id="instructor-preparation"><a class="header" href="#instructor-preparation">Instructor preparation</a></h2>
+<p>Do not spend the first two hours installing tools. Before the first session, ask students to complete a setup check and provide a fallback for anyone whose device is not ready.</p>
+<ul>
+<li>Install Flutter using the <a href="https://docs.flutter.dev/get-started/install">official installation guide</a>.</li>
+<li>Run <code>flutter doctor</code> and resolve the required issues for the chosen target.</li>
+<li>Install/configure an editor with Dart and Flutter support.</li>
+<li>Create and run a sample Flutter project on an emulator, simulator, desktop, or physical device.</li>
+<li>Confirm that hot reload works in debug mode.</li>
+<li>Install Git and verify <code>git --version</code>.</li>
+<li>Provide a known-good starter repository or archive in case individual setup fails.</li>
+</ul>
+<h2 id="do-not-require-every-platform"><a class="header" href="#do-not-require-every-platform">Do not require every platform</a></h2>
+<p>For a beginner bootcamp, choose one supported target for the teaching environment. Android emulator/physical Android is a practical default for a mobile-focused course; adapt to the cohort’s hardware and the instructor’s setup. iOS builds require macOS and Xcode.</p>
+<h2 id="pre-course-checklist"><a class="header" href="#pre-course-checklist">Pre-course checklist</a></h2>
+<p>A student is ready when they can:</p>
+<ul>
+<li>Open the starter project.</li>
+<li>Run the app and see it on a device/emulator.</li>
+<li>Change a visible string and see it update after hot reload.</li>
+<li>Find the terminal and the <code>lib/</code> directory.</li>
+<li>Send the instructor a screenshot or short message confirming successful setup.</li>
+</ul>
+<h2 id="if-setup-fails"><a class="header" href="#if-setup-fails">If setup fails</a></h2>
+<p>Pair the student with the prepared device or starter environment. Do not make environment troubleshooting the hidden prerequisite for learning programming. Record unresolved setup issues and handle them outside the core lesson where possible.</p>
+<p>Official resources: <a href="https://docs.flutter.dev/get-started/install">Install Flutter</a>, <a href="https://docs.flutter.dev/learn/pathway/tutorial">Flutter learning pathway</a>, <a href="https://docs.flutter.dev/tools/hot-reload">Hot reload</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="how-to-use-this-book"><a class="header" href="#how-to-use-this-book">How to Use This Book</a></h1>
+<h2 id="the-recurring-teaching-rhythm"><a class="header" href="#the-recurring-teaching-rhythm">The recurring teaching rhythm</a></h2>
+<p>Use this as a default, not a rigid formula:</p>
+<ol>
+<li><strong>Question or problem:</strong> give students a reason to care.</li>
+<li><strong>Mental model:</strong> explain the idea in plain language.</li>
+<li><strong>Worked example:</strong> run something small and concrete.</li>
+<li><strong>Prediction:</strong> ask what will happen before running it.</li>
+<li><strong>Change:</strong> let students modify one thing.</li>
+<li><strong>Feedback:</strong> show what happened, including failures.</li>
+<li><strong>Application:</strong> give a related task without step-by-step instructions.</li>
+<li><strong>Retrieval:</strong> ask students to explain or recreate the key idea without looking.</li>
+</ol>
+<p>A presentation is a support for this experience, not a transcript of the instructor. Put the code, diagram, output, rule, and necessary labels on screen. Put the longer explanation in the instructor’s spoken explanation and in the written lesson around the example.</p>
+<h2 id="a-suggested-120-minute-session-rhythm"><a class="header" href="#a-suggested-120-minute-session-rhythm">A suggested 120-minute session rhythm</a></h2>
+<ul>
+<li>0–10 min: opening problem and recall of the previous session.</li>
+<li>10–25 min: first concept and worked example.</li>
+<li>25–40 min: predict/change/run.</li>
+<li>40–55 min: second concept or variation.</li>
+<li>55–60 min: short break / reset.</li>
+<li>60–80 min: guided exercise.</li>
+<li>80–100 min: independent attempt or debugging.</li>
+<li>100–112 min: feedback and common mistakes.</li>
+<li>112–120 min: retrieval check and next-session teaser.</li>
+</ul>
+<p>Adjust the rhythm to the actual cohort. Students who cannot yet solve the small task should not be rushed into a new abstraction merely to finish the slide deck.</p>
+<h2 id="three-rules-for-the-instructor"><a class="header" href="#three-rules-for-the-instructor">Three rules for the instructor</a></h2>
+<ul>
+<li>Do not introduce syntax that students must use before you have shown what problem it solves.</li>
+<li>Do not treat a successful run as proof of understanding: ask students to predict, modify, and explain.</li>
+<li>Do not correct every error immediately. Ask what the error says, where it happens, and what they expected first.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="chapter-1-first-contact-with-programming-and-dart"><a class="header" href="#chapter-1-first-contact-with-programming-and-dart">Chapter 1: First Contact with Programming and Dart</a></h1>
+<p>The goal is comfort, not completeness. Students should become willing to change code, run it, inspect the result, and recover from mistakes. Dart is the language from the beginning so the transition to Flutter does not require learning a second syntax.</p>
+<h2 id="session-sequence"><a class="header" href="#session-sequence">Session sequence</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Session</th><th>Core idea</th><th>Visible outcome</th></tr>
+</thead>
+<tbody>
+<tr><td>1. First contact with code</td><td>Values, variables, types, basic input/output, run/re-run</td><td>Change <code>apple</code> to <code>orange</code> and observe output; finish with a prepared live-UI bridge</td></tr>
+<tr><td>2. Operations and calculator</td><td>Expressions, operators, simple functions and return values</td><td>A calculator whose behavior students can modify</td></tr>
+<tr><td>3. Decisions and loops</td><td>Boolean logic, branching, repetition</td><td>Small playful programs with different outcomes</td></tr>
+<tr><td>4. Collections and problem-solving</td><td>Lists, maps, functions with collections, debugging</td><td>A tiny catalogue/score tracker and a debugging homework task</td></tr>
+<tr><td>5. Dart fundamentals and OOP</td><td><code>var</code>, <code>final</code>, <code>const</code>, <code>late</code>, null safety, functions, classes/objects</td><td>Read and modify small Dart models without treating syntax as magic</td></tr>
+<tr><td>6. Revision and async</td><td>Consolidation, useful list/map operations, <code>Future</code>, <code>async</code>/<code>await</code></td><td>Students explain earlier concepts and recognize an asynchronous operation</td></tr>
+</tbody>
+</table>
+</div>
+<p>Plan roughly two hours per session. Session 5 is dense; keep OOP to classes, fields, constructors, and methods. Move inheritance, abstract classes, and advanced language features to optional reading.</p>
+<h2 id="teaching-principle"><a class="header" href="#teaching-principle">Teaching principle</a></h2>
+<p>Keep returning to the same activity: <strong>predict → change → run → explain</strong>. Early code should be small enough that the student can understand all of it at once. The first assignment is not meant to be impressive; it is meant to show that the student can use the basics independently.</p>
+<h2 id="readiness-check"><a class="header" href="#readiness-check">Readiness check</a></h2>
+<p>Before moving to Flutter, each student should be able to:</p>
+<ul>
+<li>Write a short Dart program with variables, conditions, loops, a function, and a collection.</li>
+<li>Explain the difference between changing a value and changing the code’s logic.</li>
+<li>Find and fix at least one syntax or logic error.</li>
+<li>Explain what a nullable value means at a basic level.</li>
+<li>Create and use a simple class, even with notes available.</li>
+</ul>
+<p>If many students cannot do these things, reduce the Chapter 1 assignment rather than pushing forward because the calendar says so.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="11-first-contact-with-code"><a class="header" href="#11-first-contact-with-code">1.1 First Contact with Code</a></h1>
+<blockquote>
+<p>Code is a set of instructions and values that a computer evaluates; a small edit can change the program’s behavior.</p>
+</blockquote>
+<p><strong>Session length:</strong> 120 minutes. <strong>Prerequisites:</strong> environment is already prepared. <strong>Main outcome:</strong> students can read a tiny Dart program, change data, run it, and describe what changed.</p>
+<h2 id="learning-outcomes"><a class="header" href="#learning-outcomes">Learning outcomes</a></h2>
+<p>Students can identify a variable, a value, a basic type, a program output, and the difference between changing data and changing a program’s instructions.</p>
+<h2 id="suggested-teaching-flow"><a class="header" href="#suggested-teaching-flow">Suggested teaching flow</a></h2>
+<h3 id="1-start-with-a-visible-change-010-min"><a class="header" href="#1-start-with-a-visible-change-010-min">1. Start with a visible change (0–10 min)</a></h3>
+<p>Show one tiny program. Ask students to predict the output before you run it.</p>
+<pre><code class="language-dart">void main() {
+  var fruit = 'apple';
+  print(fruit);
+}
+</code></pre>
+<p>Change <code>'apple'</code> to <code>'orange'</code> and run again. Do not begin with a long definition. Let them notice the cause-and-effect relationship first.</p>
+<h3 id="2-explain-the-smallest-mental-model-1030-min"><a class="header" href="#2-explain-the-smallest-mental-model-1030-min">2. Explain the smallest mental model (10–30 min)</a></h3>
+<ul>
+<li>A <strong>value</strong> is a piece of data, such as <code>'apple'</code>, <code>7</code>, or <code>true</code>.</li>
+<li>A <strong>variable</strong> is a named place/reference through which the program works with a value.</li>
+<li>A <strong>type</strong> describes the kind of value, such as <code>String</code>, <code>int</code>, <code>double</code>, or <code>bool</code>.</li>
+<li><code>print()</code> sends text to the console/output area.</li>
+<li><code>main()</code> is where a Dart command-line program begins.</li>
+</ul>
+<p>Show these examples and ask what type each value has:</p>
+<pre><code class="language-dart">String fruit = 'apple';
+int quantity = 3;
+double price = 2.5;
+bool isAvailable = true;
+</code></pre>
+<p>Then compare an explicit type with inference:</p>
+<pre><code class="language-dart">var name = 'Mira'; // Dart infers String.
+</code></pre>
+<p>Keep the details light. The aim is to recognize the concepts, not memorize every declaration rule.</p>
+<h3 id="3-input-and-output-3045-min"><a class="header" href="#3-input-and-output-3045-min">3. Input and output (30–45 min)</a></h3>
+<p>Explain the general idea:</p>
+<ul>
+<li><strong>Input:</strong> information supplied to a program.</li>
+<li><strong>Processing:</strong> the program works with the information.</li>
+<li><strong>Output:</strong> information the program produces.</li>
+</ul>
+<p>Use editable variables as the first kind of input, then show one real console-input example on the instructor’s machine:</p>
+<pre><code class="language-dart">import 'dart:io';
+
+void main() {
+  stdout.write('Enter your name: ');
+  final name = stdin.readLineSync();
+  print('Hello, $name!');
+}
+</code></pre>
+<p>Explain only the flow: prompt → keyboard input → value stored → output. <code>readLineSync()</code> can return a nullable value; do not teach the full null-safety rules here. This example needs a command-line environment and may not work in every browser sandbox. Explain that real apps receive input through different interfaces, such as a text field or button.</p>
+<h3 id="4-guided-sandbox-experiments-4570-min"><a class="header" href="#4-guided-sandbox-experiments-4570-min">4. Guided sandbox experiments (45–70 min)</a></h3>
+<p>Ask students to make one edit at a time:</p>
+<ol>
+<li>Rename <code>fruit</code> to <code>snack</code> everywhere.</li>
+<li>Change <code>'apple'</code> to <code>'orange'</code>.</li>
+<li>Change <code>quantity</code> from <code>3</code> to <code>10</code>.</li>
+<li>Change the type of a value, then observe what breaks if the assigned value is incompatible.</li>
+<li>Introduce a typo deliberately and read the error.</li>
+</ol>
+<p>After each edit, ask: <strong>What do you expect to happen, and why?</strong></p>
+<h3 id="5-the-prepared-flutter-bridge-7090-min"><a class="header" href="#5-the-prepared-flutter-bridge-7090-min">5. The prepared Flutter bridge (70–90 min)</a></h3>
+<p>Use a starter Flutter app whose widget tree is already written and hidden from the lesson. The student-editable part is a Dart value that the starter displays:</p>
+<pre><code class="language-dart">var fruit = 'apple';
+// The prepared UI displays the value of `fruit`.
+</code></pre>
+<p>Students change <code>apple</code> to <code>orange</code>, save, and use hot reload. Explain only that the running app reflects the value; do not teach the widget tree yet. This is a prepared bridge, not a separate Dart file automatically connected to a Flutter process.</p>
+<h3 id="6-mini-challenge-90110-min"><a class="header" href="#6-mini-challenge-90110-min">6. Mini challenge (90–110 min)</a></h3>
+<p>Students create a small “snack receipt” that stores an item name, quantity, and price, then prints a readable line of output. Provide the first example, but ask them to change the data and sentence themselves.</p>
+<h3 id="7-retrieval-110120-min"><a class="header" href="#7-retrieval-110120-min">7. Retrieval (110–120 min)</a></h3>
+<p>Without looking, students explain:</p>
+<ul>
+<li>What is the variable name in <code>var fruit = 'apple';</code>?</li>
+<li>What is the value?</li>
+<li>What does <code>print()</code> do?</li>
+<li>What changed when the value changed? What would happen if the variable name changed but one use was not updated?</li>
+</ul>
+<h2 id="common-beginner-mistakes"><a class="header" href="#common-beginner-mistakes">Common beginner mistakes</a></h2>
+<ul>
+<li>Treating quotes as part of the text value rather than Dart syntax.</li>
+<li>Changing a variable’s name in one place but not in its other uses.</li>
+<li>Confusing <code>=</code> (assignment) with <code>==</code> (comparison); reserve full comparison coverage for Session 3.</li>
+<li>Assuming every error means they are “bad at coding.” Use errors as feedback.</li>
+</ul>
+<h2 id="further-reading"><a class="header" href="#further-reading">Further reading</a></h2>
+<ul>
+<li><a href="https://dart.dev/language">Dart: Hello World and variables</a></li>
+<li><a href="https://dart.dev/language/variables">Dart variables</a></li>
+<li><a href="https://docs.flutter.dev/tools/hot-reload">Flutter hot reload</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="12-operations-and-the-calculator"><a class="header" href="#12-operations-and-the-calculator">1.2 Operations and the Calculator</a></h1>
+<blockquote>
+<p>A program can transform inputs into outputs; a function gives a useful operation a name.</p>
+</blockquote>
+<p><strong>Main outcome:</strong> students can trace an arithmetic expression, change an operator, and call a simple function with arguments.</p>
+<h2 id="teaching-flow"><a class="header" href="#teaching-flow">Teaching flow</a></h2>
+<h3 id="1-start-with-the-calculator-010-min"><a class="header" href="#1-start-with-the-calculator-010-min">1. Start with the calculator (0–10 min)</a></h3>
+<p>Show a tiny calculator with two values and one operation. Begin with addition, then ask what a single symbol change might do.</p>
+<pre><code class="language-dart">void main() {
+  final first = 8;
+  final second = 2;
+  print(first + second);
+}
+</code></pre>
+<p>Explore <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, and <code>%</code> with small values. Show one example of parentheses changing evaluation order. Do not turn this into a math lecture.</p>
+<h3 id="2-make-the-operation-visible-1030-min"><a class="header" href="#2-make-the-operation-visible-1030-min">2. Make the operation visible (10–30 min)</a></h3>
+<p>Ask students to predict results for expressions before executing them. Cover arithmetic versus comparison operators at a basic level, but leave conditions for the next lesson.</p>
+<pre><code class="language-dart">print(8 + 2); // 10
+print(8 * 2); // 16
+print(8 % 3); // 2
+</code></pre>
+<h3 id="3-introduce-a-function-only-as-needed-3050-min"><a class="header" href="#3-introduce-a-function-only-as-needed-3050-min">3. Introduce a function only as needed (30–50 min)</a></h3>
+<p>A function is a named, reusable operation. Parameters are its inputs; <code>return</code> gives a result back to the caller.</p>
+<pre><code class="language-dart">int sum(int a, int b) {
+  return a + b;
+}
+
+void main() {
+  print(sum(8, 2));
+}
+</code></pre>
+<p>Trace the values of <code>a</code> and <code>b</code> on the board. Distinguish returning a value from printing a value.</p>
+<h3 id="4-the-modification-challenge-5075-min"><a class="header" href="#4-the-modification-challenge-5075-min">4. The modification challenge (50–75 min)</a></h3>
+<p>Give students a function that calculates a sum. Ask them to change its behavior to calculate a power instead. Provide the import and unfamiliar library call as scaffolding so the lesson stays focused on changing behavior rather than library research:</p>
+<pre><code class="language-dart">import 'dart:math' as math;
+
+num calculate(int base, int exponent) {
+  return math.pow(base, exponent);
+}
+</code></pre>
+<p>Let them first rename the function and then test <code>calculate(2, 3)</code>. Restrict the exercise to non-negative integer exponents for now. Later, when loops are understood, students can implement a simple power function themselves.</p>
+<h3 id="5-calculator-extension-75105-min"><a class="header" href="#5-calculator-extension-75105-min">5. Calculator extension (75–105 min)</a></h3>
+<p>Students modify a provided calculator by changing the operation, adding a new operation, or changing the values. If the class is progressing well, let them make the operation a parameter rather than duplicating code.</p>
+<h3 id="6-retrieval-105120-min"><a class="header" href="#6-retrieval-105120-min">6. Retrieval (105–120 min)</a></h3>
+<p>Ask students to describe the flow: arguments → parameters → calculation → return value → output.</p>
+<h2 id="common-mistakes"><a class="header" href="#common-mistakes">Common mistakes</a></h2>
+<ul>
+<li>Thinking <code>return</code> and <code>print</code> mean the same thing.</li>
+<li>Forgetting that a function call executes the function.</li>
+<li>Confusing a parameter (the name in the function declaration) with an argument (the value passed into the call).</li>
+<li>Modifying several things at once and losing track of which change caused the result.</li>
+</ul>
+<h2 id="further-reading-1"><a class="header" href="#further-reading-1">Further reading</a></h2>
+<ul>
+<li><a href="https://dart.dev/language/functions">Dart functions</a></li>
+<li><a href="https://api.dart.dev/dart-math/dart-math-library.html">Dart math library</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="13-decisions-and-loops"><a class="header" href="#13-decisions-and-loops">1.3 Decisions and Loops</a></h1>
+<blockquote>
+<p>Conditions let a program choose; loops let it repeat.</p>
+</blockquote>
+<p><strong>Main outcome:</strong> students can read and modify simple branches and loops, and predict their behavior before running them.</p>
+<h2 id="1-decisions"><a class="header" href="#1-decisions">1. Decisions</a></h2>
+<p>Start with a practical question: “If the score is at least 50, should the result say Pass or Try again?” Introduce <code>bool</code>, comparison operators, and <code>if</code> / <code>else</code> together.</p>
+<pre><code class="language-dart">void main() {
+  final score = 72;
+
+  if (score &gt;= 50) {
+    print('Pass');
+  } else {
+    print('Try again');
+  }
+}
+</code></pre>
+<p>Cover <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>==</code>, <code>!=</code>, <code>&amp;&amp;</code>, <code>||</code>, and <code>!</code> through prediction puzzles, not a slide of symbols alone.</p>
+<h2 id="2-repetition"><a class="header" href="#2-repetition">2. Repetition</a></h2>
+<p>Start with repeated <code>print()</code> calls, ask what is wasteful, then replace them with a loop.</p>
+<pre><code class="language-dart">for (var number = 1; number &lt;= 5; number++) {
+  print(number);
+}
+</code></pre>
+<p>Teach the three parts of the counting loop only after students can explain the outcome. Then introduce a <code>for-in</code> loop over a provided list, and use <code>while</code> only if time permits.</p>
+<h2 id="3-playful-challenges"><a class="header" href="#3-playful-challenges">3. Playful challenges</a></h2>
+<ul>
+<li>Change a score so the branch takes a different path.</li>
+<li>Predict which of two conditions will be true.</li>
+<li>Make a countdown from 5 to 1.</li>
+<li>Print only even numbers from 1 through 10.</li>
+<li>Modify a loop boundary and explain the off-by-one difference.</li>
+<li>Make a small “guess the number” program with a fixed guess before adding interactive input.</li>
+</ul>
+<h2 id="4-debugging-checkpoint"><a class="header" href="#4-debugging-checkpoint">4. Debugging checkpoint</a></h2>
+<p>Give students a short program with one intentional bug: a wrong comparison, a loop boundary that repeats one extra time, or an assignment where a comparison is intended. Ask them to predict the wrong behavior, locate the line, change one thing, and run it again.</p>
+<p>This is a <strong>small first debugging task</strong>. The larger homework comes after they have used collections in the next lesson.</p>
+<h2 id="common-mistakes-1"><a class="header" href="#common-mistakes-1">Common mistakes</a></h2>
+<ul>
+<li>Confusing <code>=</code> with <code>==</code>.</li>
+<li>Writing a loop that never changes its condition.</li>
+<li>Assuming code inside an <code>if</code> block always runs.</li>
+<li>Miscounting loop iterations.</li>
+</ul>
+<h2 id="review"><a class="header" href="#review">Review</a></h2>
+<ol>
+<li>What type of value does a condition need to produce?</li>
+<li>What changes between one loop iteration and the next?</li>
+<li>Predict the output of a loop with a starting value of 1 and an upper bound of 3.</li>
+<li>Describe the steps you used to fix the debugging task.</li>
+</ol>
+<h2 id="further-reading-2"><a class="header" href="#further-reading-2">Further reading</a></h2>
+<ul>
+<li><a href="https://dart.dev/language/branches">Dart control flow</a></li>
+<li><a href="https://dart.dev/language/loops">Dart loops</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="14-collections-problem-solving-and-debugging"><a class="header" href="#14-collections-problem-solving-and-debugging">1.4 Collections, Problem Solving, and Debugging</a></h1>
+<blockquote>
+<p>A collection lets a program work with many related values instead of one value at a time.</p>
+</blockquote>
+<p><strong>Main outcome:</strong> students can use a <code>List</code> and a <code>Map</code>, loop through values, call a function, and debug a small program made from familiar parts.</p>
+<h2 id="1-lists"><a class="header" href="#1-lists">1. Lists</a></h2>
+<p>Use an everyday theme such as a list of foods, tasks, or student scores.</p>
+<pre><code class="language-dart">void main() {
+  final fruits = ['apple', 'orange', 'banana'];
+  print(fruits[0]);
+  print(fruits.length);
+
+  for (final fruit in fruits) {
+    print(fruit);
+  }
+}
+</code></pre>
+<p>Explain that a list is ordered and index-based, and that the first index is <code>0</code>. Demonstrate adding an item with <code>add()</code> and accessing a value by index. Explain that <code>final</code> prevents reassignment of the list variable but does not automatically make the list’s contents immutable; keep this nuance brief.</p>
+<h2 id="2-maps"><a class="header" href="#2-maps">2. Maps</a></h2>
+<p>Use a map to associate keys with values:</p>
+<pre><code class="language-dart">final student = {
+  'name': 'Lina',
+  'score': 87,
+};
+
+print(student['name']);
+print(student['score']);
+</code></pre>
+<p>Describe it as key → value lookup. Avoid introducing type parameters deeply at first; return to <code>&lt;String, int&gt;</code> when students are ready to inspect types.</p>
+<h2 id="3-functions-with-collections"><a class="header" href="#3-functions-with-collections">3. Functions with collections</a></h2>
+<p>Give students a function that receives a list and prints each item. Then let them modify it to count items, sum scores, or search for a value.</p>
+<pre><code class="language-dart">int total(List&lt;int&gt; scores) {
+  var result = 0;
+  for (final score in scores) {
+    result += score;
+  }
+  return result;
+}
+</code></pre>
+<p>The aim is to combine concepts they already know, not to introduce five new collection methods in one go.</p>
+<h2 id="4-basic-problem-solving-routine"><a class="header" href="#4-basic-problem-solving-routine">4. Basic problem-solving routine</a></h2>
+<p>Teach students to make a tiny plan before writing code:</p>
+<ol>
+<li>Restate the problem in plain language.</li>
+<li>Identify the input and expected output.</li>
+<li>Work one example by hand.</li>
+<li>Break the problem into small steps.</li>
+<li>Write a small amount of code.</li>
+<li>Run it with a normal case and an edge case.</li>
+<li>Explain why it works.</li>
+</ol>
+<h2 id="5-debugging-homework"><a class="header" href="#5-debugging-homework">5. Debugging homework</a></h2>
+<p>Give students a short list/map program containing two or three bugs. The bugs should be within concepts already taught: wrong index, incorrect loop condition, incorrect key, or a function returning the wrong result.</p>
+<p>Ask them to submit:</p>
+<ul>
+<li>The corrected code.</li>
+<li>The observed error or wrong output.</li>
+<li>A short explanation of each fix.</li>
+<li>One test input they added themselves.</li>
+</ul>
+<h2 id="common-mistakes-2"><a class="header" href="#common-mistakes-2">Common mistakes</a></h2>
+<ul>
+<li>Using an index that is outside the list’s range.</li>
+<li>Assuming a map key exists.</li>
+<li>Modifying a collection and then forgetting that its contents changed.</li>
+<li>Writing code before deciding what output should be produced.</li>
+</ul>
+<h2 id="review-1"><a class="header" href="#review-1">Review</a></h2>
+<ul>
+<li>When is a list a better fit than a map?</li>
+<li>Why does the first list index equal zero?</li>
+<li>What does a function return when it reaches <code>return result;</code>?</li>
+<li>What makes a debugging explanation better than just pasting corrected code?</li>
+</ul>
+<h2 id="further-reading-3"><a class="header" href="#further-reading-3">Further reading</a></h2>
+<ul>
+<li><a href="https://dart.dev/libraries/dart-core#collections">Dart collections</a></li>
+<li><a href="https://api.dart.dev/dart-core/List-class.html">Dart lists</a></li>
+<li><a href="https://api.dart.dev/dart-core/Map-class.html">Dart maps</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="15-dart-fundamentals-null-safety-and-oop"><a class="header" href="#15-dart-fundamentals-null-safety-and-oop">1.5 Dart Fundamentals, Null Safety, and OOP</a></h1>
+<blockquote>
+<p>Dart adds rules that help make code clearer and safer; classes let related data and behavior live together.</p>
+</blockquote>
+<p><strong>Important pacing note:</strong> this is a dense session. In the first hour, prioritize <code>final</code>/<code>const</code>, <code>late</code> at a basic level, functions, and null safety. In the second hour, teach only the basics of classes and objects. Do not add inheritance or advanced OOP unless the cohort is moving unusually quickly.</p>
+<h2 id="part-a--dart-language-details-about-60-minutes"><a class="header" href="#part-a--dart-language-details-about-60-minutes">Part A — Dart language details (about 60 minutes)</a></h2>
+<h3 id="var-final-and-const"><a class="header" href="#var-final-and-const"><code>var</code>, <code>final</code>, and <code>const</code></a></h3>
+<pre><code class="language-dart">var nickname = 'Ali'; // The variable can be reassigned.
+final startedAt = DateTime.now(); // Assigned once.
+const maxLives = 3; // A compile-time constant.
+</code></pre>
+<p>For beginners, use this simple explanation: <code>var</code> lets Dart infer the type; <code>final</code> means the variable is assigned once; <code>const</code> means the value is a compile-time constant. Avoid saying that a <code>final</code> object is always deeply immutable.</p>
+<h3 id="late"><a class="header" href="#late"><code>late</code></a></h3>
+<p>Explain that <code>late</code> delays initialization of a non-nullable variable until later. Show it for recognition and explain the risk: reading it before assigning a value causes a runtime error. Prefer normal initialization unless there is a clear reason to use <code>late</code>.</p>
+<h3 id="functions-in-more-depth"><a class="header" href="#functions-in-more-depth">Functions in more depth</a></h3>
+<p>Revisit parameters, return values, and named parameters, because Flutter constructors use named parameters heavily.</p>
+<pre><code class="language-dart">String greet({required String name, String greeting = 'Hello'}) {
+  return '$greeting, $name!';
+}
+</code></pre>
+<p>Introduce string interpolation (<code>'$name'</code>) and explain <code>required</code> as a requirement at the call site.</p>
+<h3 id="null-safety"><a class="header" href="#null-safety">Null safety</a></h3>
+<p>A nullable value may be absent. Dart’s type system makes this possibility explicit.</p>
+<pre><code class="language-dart">String name = 'Rana';
+String? nickname = null; // Can be a String or null.
+
+print(nickname ?? 'No nickname');
+</code></pre>
+<p>Teach these symbols through actual examples:</p>
+<ul>
+<li><code>String?</code>: this value may be null.</li>
+<li><code>value != null</code>: check before using the value.</li>
+<li><code>??</code>: use a fallback when the left side is null.</li>
+<li><code>?.</code>: access a member only if the value is not null.</li>
+<li><code>!</code>: assert non-null; use carefully, because it can fail at runtime.</li>
+</ul>
+<p>Do not overwhelm students with flow analysis rules. The essential lesson is to represent optional data honestly instead of pretending it must exist.</p>
+<h2 id="part-b--classes-and-objects-about-60-minutes"><a class="header" href="#part-b--classes-and-objects-about-60-minutes">Part B — Classes and objects (about 60 minutes)</a></h2>
+<p>Start with a familiar thing that has data and actions: a <code>Task</code> with a title, a completion flag, and a method to mark it complete.</p>
+<pre><code class="language-dart">class Task {
+  Task(this.title) : isDone = false;
+
+  final String title;
+  bool isDone;
+
+  void complete() {
+    isDone = true;
+  }
+}
+
+void main() {
+  final task = Task('Review variables');
+  task.complete();
+  print(task.isDone); // true
+}
+</code></pre>
+<p>Explain:</p>
+<ul>
+<li>A <strong>class</strong> describes a kind of object.</li>
+<li>An <strong>object/instance</strong> is created from the class.</li>
+<li>A <strong>field</strong> stores data.</li>
+<li>A <strong>constructor</strong> sets up a new object.</li>
+<li>A <strong>method</strong> is a function associated with the object.</li>
+</ul>
+<p>Avoid deep theory about inheritance, interfaces, polymorphism, or design patterns here. Students need enough class knowledge to understand models and Flutter widget classes later.</p>
+<h2 id="checkpoint"><a class="header" href="#checkpoint">Checkpoint</a></h2>
+<p>Students modify <code>Task</code> to add a priority or owner, then explain which values may be null and which are guaranteed to exist.</p>
+<h2 id="further-reading-4"><a class="header" href="#further-reading-4">Further reading</a></h2>
+<ul>
+<li><a href="https://dart.dev/language/variables">Dart variables</a></li>
+<li><a href="https://dart.dev/language/functions">Dart functions</a></li>
+<li><a href="https://dart.dev/language/classes">Dart classes</a></li>
+<li><a href="https://dart.dev/null-safety/understanding-null-safety">Dart null safety</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="16-revision-collections-tricks-and-async"><a class="header" href="#16-revision-collections-tricks-and-async">1.6 Revision, Collections Tricks, and Async</a></h1>
+<blockquote>
+<p>Consolidation is part of learning: students retrieve and combine ideas rather than only encountering new ones.</p>
+</blockquote>
+<p><strong>Main outcome:</strong> students can combine core Dart concepts and explain what <code>Future</code>, <code>async</code>, and <code>await</code> mean at a beginner level.</p>
+<h2 id="part-a--revision-through-a-single-program"><a class="header" href="#part-a--revision-through-a-single-program">Part A — Revision through a single program</a></h2>
+<p>Begin with a small program that tracks a list of tasks or scores. Ask students to identify and explain the variables, types, condition, loop, collection, function, and class. Then ask them to change the behavior before you add new content.</p>
+<p>Review useful collection operations only when they solve a visible problem:</p>
+<ul>
+<li><code>add()</code> to append.</li>
+<li><code>length</code> to count.</li>
+<li><code>contains()</code> to test membership.</li>
+<li><code>where()</code> to filter a list.</li>
+<li><code>map()</code> to transform values (clarify that this is the list transformation method, not the <code>Map</code> key/value collection type).</li>
+<li><code>for-in</code> to process items one by one.</li>
+</ul>
+<p>Do not teach list operations as a disconnected vocabulary list. Compare a loop to a <code>where()</code> or <code>map()</code> example and explain why the method is useful.</p>
+<h2 id="part-b--async-as-a-preview-not-a-deep-dive"><a class="header" href="#part-b--async-as-a-preview-not-a-deep-dive">Part B — Async as a preview, not a deep dive</a></h2>
+<p>A synchronous line finishes before the program moves to the next line. Some operations, such as network requests, take time. Dart represents a future result with a <code>Future</code>.</p>
+<pre><code class="language-dart">Future&lt;String&gt; loadMessage() async {
+  await Future.delayed(const Duration(seconds: 1));
+  return 'Ready';
+}
+</code></pre>
+<p>Explain only:</p>
+<ul>
+<li><code>Future&lt;String&gt;</code> means the string will be available later (or an error will occur).</li>
+<li><code>async</code> marks a function that uses asynchronous syntax.</li>
+<li><code>await</code> waits for the future’s result without blocking the app’s event loop.</li>
+</ul>
+<p>Do not turn this into a lecture about isolates, streams, or the event loop. Students will use async/await practically when they fetch data in Chapter 4.</p>
+<h2 id="short-exercise"><a class="header" href="#short-exercise">Short exercise</a></h2>
+<p>Students call a provided asynchronous function and display its result in a CLI example. They should explain the difference between receiving a <code>Future</code> and receiving the value from that future.</p>
+<h2 id="chapter-1-readiness-check"><a class="header" href="#chapter-1-readiness-check">Chapter 1 readiness check</a></h2>
+<p>Students should now be able to complete the CLI project without copying the entire solution. Notes are allowed. Search and documentation are tools, not cheating; the assessment is whether they can connect the pieces and explain their code.</p>
+<h2 id="further-reading-5"><a class="header" href="#further-reading-5">Further reading</a></h2>
+<ul>
+<li><a href="https://dart.dev/language/async">Dart asynchronous programming</a></li>
+<li><a href="https://dart.dev/language/concurrency">Dart concurrency</a></li>
+<li><a href="https://dart.dev/libraries/dart-core#collections">Dart lists and collections</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="chapter-project-a-tiny-cli-game"><a class="header" href="#chapter-project-a-tiny-cli-game">Chapter Project: A Tiny CLI Game</a></h1>
+<h2 id="goal"><a class="header" href="#goal">Goal</a></h2>
+<p>Build a small command-line game or string-manipulation program that proves the student can use the Chapter 1 fundamentals. Do not require async or Flutter in this assignment.</p>
+<h2 id="suggested-project-options"><a class="header" href="#suggested-project-options">Suggested project options</a></h2>
+<h3 id="option-a--numberchoice-guessing-game"><a class="header" href="#option-a--numberchoice-guessing-game">Option A — Number/choice guessing game</a></h3>
+<p>The instructor provides a simple fixed secret value at first. Students ask for a guess, compare it, provide feedback, and allow a limited number of attempts. If command-line input is available, students can read a guess from the terminal; otherwise, use a provided list of guesses to focus on core logic first.</p>
+<h3 id="option-b--wordphrase-utility"><a class="header" href="#option-b--wordphrase-utility">Option B — Word/phrase utility</a></h3>
+<p>Ask for or define a phrase and then count characters, count words, reverse text, check whether a word is present, or normalize the phrase. Choose only two or three operations; do not turn the assignment into a library of unrelated features.</p>
+<h3 id="option-c--score-tracker"><a class="header" href="#option-c--score-tracker">Option C — Score tracker</a></h3>
+<p>Store a list of scores, calculate a total/average, identify a pass/fail result, and print a summary.</p>
+<h2 id="requirements"><a class="header" href="#requirements">Requirements</a></h2>
+<ul>
+<li>Use variables with sensible types.</li>
+<li>Use at least one function with parameters and a return value.</li>
+<li>Use a condition.</li>
+<li>Use a loop or iterate over a collection.</li>
+<li>Use a list or map where appropriate.</li>
+<li>Handle at least one likely invalid or edge case.</li>
+<li>Include comments only where they clarify a decision.</li>
+<li>Explain one bug encountered and how it was fixed.</li>
+</ul>
+<h2 id="what-not-to-require"><a class="header" href="#what-not-to-require">What not to require</a></h2>
+<ul>
+<li>Flutter UI.</li>
+<li>Async/await.</li>
+<li>Inheritance or advanced OOP.</li>
+<li>External packages.</li>
+<li>A polished graphic interface.</li>
+</ul>
+<h2 id="review-rubric"><a class="header" href="#review-rubric">Review rubric</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Criterion</th><th>What to look for</th></tr>
+</thead>
+<tbody>
+<tr><td>Runs</td><td>Program starts and produces a result.</td></tr>
+<tr><td>Logic</td><td>Decisions and repetition behave as intended.</td></tr>
+<tr><td>Structure</td><td>At least one helpful function; names are understandable.</td></tr>
+<tr><td>Data</td><td>Lists/maps are used appropriately if the chosen project needs them.</td></tr>
+<tr><td>Debugging</td><td>Student can explain at least one test or fix.</td></tr>
+<tr><td>Understanding</td><td>Student can walk through the main logic in their own words.</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="chapter-2-the-flutter-mental-model"><a class="header" href="#chapter-2-the-flutter-mental-model">Chapter 2: The Flutter Mental Model</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="21-what-flutter-is-and-how-it-works"><a class="header" href="#21-what-flutter-is-and-how-it-works">2.1 What Flutter Is and How It Works</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="22-from-dart-to-the-widget-tree"><a class="header" href="#22-from-dart-to-the-widget-tree">2.2 From Dart to the Widget Tree</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="23-layout-images-scrolling-and-a-static-grid"><a class="header" href="#23-layout-images-scrolling-and-a-static-grid">2.3 Layout, Images, Scrolling, and a Static Grid</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="project-build-from-a-theme-or-constraint"><a class="header" href="#project-build-from-a-theme-or-constraint">Project: Build from a Theme or Constraint</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="project-review-learning-from-broken-ui"><a class="header" href="#project-review-learning-from-broken-ui">Project Review: Learning from Broken UI</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="chapter-3-forms-navigation-and-design-to-code"><a class="header" href="#chapter-3-forms-navigation-and-design-to-code">Chapter 3: Forms, Navigation, and Design to Code</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="31-forms-inputs-buttons-and-validation"><a class="header" href="#31-forms-inputs-buttons-and-validation">3.1 Forms, Inputs, Buttons, and Validation</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="32-multiple-screens-and-reusable-components"><a class="header" href="#32-multiple-screens-and-reusable-components">3.2 Multiple Screens and Reusable Components</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="33-turning-a-design-into-flutter"><a class="header" href="#33-turning-a-design-into-flutter">3.3 Turning a Design into Flutter</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="chapter-build-implement-a-pre-made-design-together"><a class="header" href="#chapter-build-implement-a-pre-made-design-together">Chapter Build: Implement a Pre-Made Design Together</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="chapter-4-network-data-authentication-and-state"><a class="header" href="#chapter-4-network-data-authentication-and-state">Chapter 4: Network Data, Authentication, and State</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="41-async-http-json-and-models"><a class="header" href="#41-async-http-json-and-models">4.1 Async, HTTP, JSON, and Models</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="42-displaying-remote-data-and-handling-states"><a class="header" href="#42-displaying-remote-data-and-handling-states">4.2 Displaying Remote Data and Handling States</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="43-supabase-authentication-and-database-access"><a class="header" href="#43-supabase-authentication-and-database-access">4.3 Supabase Authentication and Database Access</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="44-state-animation-timing-curves-and-ux"><a class="header" href="#44-state-animation-timing-curves-and-ux">4.4 State, Animation, Timing, Curves, and UX</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="chapter-5-the-walk-with-me-project"><a class="header" href="#chapter-5-the-walk-with-me-project">Chapter 5: The Walk-With-Me Project</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="51-plan-the-app-and-give-it-structure"><a class="header" href="#51-plan-the-app-and-give-it-structure">5.1 Plan the App and Give It Structure</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="52-build-test-and-improve-the-app"><a class="header" href="#52-build-test-and-improve-the-app">5.2 Build, Test, and Improve the App</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="chapter-6-final-project-and-next-steps"><a class="header" href="#chapter-6-final-project-and-next-steps">Chapter 6: Final Project and Next Steps</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="61-project-brief-cheat-sheet-and-toolkit"><a class="header" href="#61-project-brief-cheat-sheet-and-toolkit">6.1 Project Brief, Cheat Sheet, and Toolkit</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="62-review-advice-and-github"><a class="header" href="#62-review-advice-and-github">6.2 Review, Advice, and GitHub</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="final-project-rubric"><a class="header" href="#final-project-rubric">Final Project Rubric</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="appendix-a-dart-cheat-sheet"><a class="header" href="#appendix-a-dart-cheat-sheet">Appendix A: Dart Cheat Sheet</a></h1>
+<h2 id="values-and-variables"><a class="header" href="#values-and-variables">Values and variables</a></h2>
+<pre><code class="language-dart">var name = 'Mira';          // inferred String
+String city = 'Nablus';     // explicit type
+int count = 3;
+double price = 2.5;
+bool isReady = true;
+final createdAt = DateTime.now();
+const maxItems = 10;
+</code></pre>
+<ul>
+<li><code>var</code>: infer a type; the variable may be reassigned to another value of the same type.</li>
+<li><code>final</code>: assign once.</li>
+<li><code>const</code>: compile-time constant.</li>
+<li><code>late</code>: promise that a non-nullable variable will be initialized before use; avoid unless necessary.</li>
+</ul>
+<h2 id="strings"><a class="header" href="#strings">Strings</a></h2>
+<pre><code class="language-dart">final greeting = 'Hello, $name';
+final summary = '${count * price} total';
+</code></pre>
+<h2 id="conditions-and-loops"><a class="header" href="#conditions-and-loops">Conditions and loops</a></h2>
+<pre><code class="language-dart">if (count &gt; 0) {
+  print('Has items');
+} else {
+  print('Empty');
+}
+
+for (var i = 0; i &lt; 3; i++) {
+  print(i);
+}
+
+for (final item in items) {
+  print(item);
+}
+</code></pre>
+<h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<pre><code class="language-dart">int add(int a, int b) =&gt; a + b;
+
+String greet({required String name}) {
+  return 'Hello, $name';
+}
+</code></pre>
+<h2 id="collections"><a class="header" href="#collections">Collections</a></h2>
+<pre><code class="language-dart">final names = &lt;String&gt;['Mira', 'Omar'];
+final scores = &lt;String, int&gt;{'Mira': 91, 'Omar': 86};
+
+names.add('Lina');
+print(names.length);
+print(scores['Mira']);
+</code></pre>
+<p><code>List</code> is an ordered sequence. <code>Map</code> associates keys with values. Remember that looking up a missing key can produce <code>null</code>.</p>
+<h2 id="null-safety-1"><a class="header" href="#null-safety-1">Null safety</a></h2>
+<pre><code class="language-dart">String? optionalName = null;
+final displayName = optionalName ?? 'Guest';
+
+if (optionalName != null) {
+  print(optionalName.length);
+}
+</code></pre>
+<ul>
+<li><code>T?</code>: value may be null.</li>
+<li><code>??</code>: fallback if the left side is null.</li>
+<li><code>?.</code>: access only when non-null.</li>
+<li><code>!</code>: assert non-null; can fail at runtime.</li>
+</ul>
+<h2 id="classes"><a class="header" href="#classes">Classes</a></h2>
+<pre><code class="language-dart">class Task {
+  Task(this.title);
+  final String title;
+  bool isDone = false;
+}
+</code></pre>
+<h2 id="async"><a class="header" href="#async">Async</a></h2>
+<pre><code class="language-dart">Future&lt;String&gt; loadLabel() async {
+  await Future.delayed(const Duration(milliseconds: 300));
+  return 'Done';
+}
+</code></pre>
+<p>Use the official <a href="https://dart.dev/language">Dart language tour</a> for full syntax and details.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="appendix-b-flutter-ui-cheat-sheet"><a class="header" href="#appendix-b-flutter-ui-cheat-sheet">Appendix B: Flutter UI Cheat Sheet</a></h1>
+<h2 id="app-shape"><a class="header" href="#app-shape">App shape</a></h2>
+<pre><code class="language-dart">void main() =&gt; runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Example')),
+        body: const Center(child: Text('Hello')),
+      ),
+    );
+  }
+}
+</code></pre>
+<h2 id="common-layout-widgets"><a class="header" href="#common-layout-widgets">Common layout widgets</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Need</th><th>Common starting point</th></tr>
+</thead>
+<tbody>
+<tr><td>Horizontal arrangement</td><td><code>Row</code></td></tr>
+<tr><td>Vertical arrangement</td><td><code>Column</code></td></tr>
+<tr><td>Space around a child</td><td><code>Padding</code></td></tr>
+<tr><td>Fixed gap</td><td><code>SizedBox</code></td></tr>
+<tr><td>Take available flex space</td><td><code>Expanded</code> / <code>Flexible</code></td></tr>
+<tr><td>Scrollable vertical content</td><td><code>ListView</code></td></tr>
+<tr><td>Scrollable grid</td><td><code>GridView</code></td></tr>
+<tr><td>Overlap or position children</td><td><code>Stack</code></td></tr>
+<tr><td>Visual box with decoration</td><td><code>Container</code> / <code>DecoratedBox</code></td></tr>
+<tr><td>Display text</td><td><code>Text</code></td></tr>
+<tr><td>Display image</td><td><code>Image.asset</code> / <code>Image.network</code></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="state"><a class="header" href="#state">State</a></h2>
+<ul>
+<li>Use <code>StatelessWidget</code> when the widget itself does not own changing local state.</li>
+<li>Use <code>StatefulWidget</code> for local state that changes during the widget’s lifetime.</li>
+<li>Call <code>setState</code> after changing local state so Flutter knows to rebuild.</li>
+<li>Keep network logic out of <code>build()</code>; build can be called repeatedly.</li>
+</ul>
+<h2 id="navigation"><a class="header" href="#navigation">Navigation</a></h2>
+<p>Use <code>Navigator.push</code> to open another route/screen and <code>Navigator.pop</code> to go back for simple beginner examples. Use a more advanced routing setup only if the app needs it.</p>
+<h2 id="forms"><a class="header" href="#forms">Forms</a></h2>
+<p>Use <code>Form</code>, <code>GlobalKey&lt;FormState&gt;</code>, <code>TextFormField</code>, a validator, and a submit callback. A validator returns an error string when invalid and <code>null</code> when valid.</p>
+<h2 id="layout-rule"><a class="header" href="#layout-rule">Layout rule</a></h2>
+<p><strong>Constraints go down. Sizes go up. Parent sets position.</strong></p>
+<p>See <a href="https://docs.flutter.dev/ui/layout">Flutter layouts</a>, <a href="https://docs.flutter.dev/ui/navigation">navigation</a>, and <a href="https://docs.flutter.dev/cookbook/forms/validation">form validation</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="appendix-c-debugging-guide"><a class="header" href="#appendix-c-debugging-guide">Appendix C: Debugging Guide</a></h1>
+<p>Debugging is a repeatable process, not random editing.</p>
+<h2 id="the-loop"><a class="header" href="#the-loop">The loop</a></h2>
+<ol>
+<li><strong>Reproduce:</strong> what exact action produces the problem?</li>
+<li><strong>Observe:</strong> what did you expect, and what happened instead?</li>
+<li><strong>Read:</strong> inspect the first useful error message and the relevant line/stack trace.</li>
+<li><strong>Classify:</strong> syntax/compile-time, runtime, or logic/behavior error?</li>
+<li><strong>Hypothesize:</strong> state one reason the issue might happen.</li>
+<li><strong>Change one thing:</strong> avoid changing five lines at once.</li>
+<li><strong>Run again:</strong> did the evidence support the hypothesis?</li>
+<li><strong>Record:</strong> explain the cause and fix in one or two sentences.</li>
+</ol>
+<h2 id="error-categories"><a class="header" href="#error-categories">Error categories</a></h2>
+<ul>
+<li><strong>Syntax/analyzer error:</strong> code does not follow language/API rules or types do not match.</li>
+<li><strong>Runtime error:</strong> the program runs but fails during execution, such as an invalid list index or a forced null assertion.</li>
+<li><strong>Logic error:</strong> the program runs but produces the wrong result.</li>
+<li><strong>UI/layout error:</strong> the app builds, but something is clipped, overflowing, misaligned, or absent.</li>
+<li><strong>Network/backend error:</strong> request, credentials, permissions, or response handling failed.</li>
+</ul>
+<h2 id="flutter-debugging-checklist"><a class="header" href="#flutter-debugging-checklist">Flutter debugging checklist</a></h2>
+<ul>
+<li>Did I read the first meaningful error, not only the last line?</li>
+<li>Is the widget actually in the returned tree?</li>
+<li>Did I change state inside <code>setState</code> where appropriate?</li>
+<li>Is a network call accidentally running inside <code>build()</code>?</li>
+<li>Is a <code>ListView</code>/<code>Expanded</code> receiving valid layout constraints?</li>
+<li>Does the asset path exist and appear in <code>pubspec.yaml</code>?</li>
+<li>Is the server response successful and the JSON key correct?</li>
+<li>Could the value be null?</li>
+<li>Is a backend policy denying access intentionally?</li>
+</ul>
+<h2 id="tooling"><a class="header" href="#tooling">Tooling</a></h2>
+<p>Introduce DevTools gradually: log/console first, then source-level debugger and widget/layout inspection when useful. Do not try to teach the entire DevTools suite in one session.</p>
+<ul>
+<li><a href="https://docs.flutter.dev/tools/devtools">Flutter DevTools</a></li>
+<li><a href="https://docs.flutter.dev/testing/common-errors">Common Flutter errors</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="appendix-d-app-quality-checklist"><a class="header" href="#appendix-d-app-quality-checklist">Appendix D: App Quality Checklist</a></h1>
+<p>Use this before a project demo or GitHub submission.</p>
+<h2 id="functionality"><a class="header" href="#functionality">Functionality</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> The app launches on the agreed target.</li>
+<li><input disabled="" type="checkbox"> Main buttons and navigation work.</li>
+<li><input disabled="" type="checkbox"> Invalid form input receives useful feedback.</li>
+<li><input disabled="" type="checkbox"> Empty, loading, success, and error states are handled where relevant.</li>
+<li><input disabled="" type="checkbox"> Repeated taps do not create confusing duplicate actions.</li>
+</ul>
+<h2 id="ui-and-accessibility"><a class="header" href="#ui-and-accessibility">UI and accessibility</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> Text hierarchy is clear.</li>
+<li><input disabled="" type="checkbox"> Text remains usable with larger system font settings.</li>
+<li><input disabled="" type="checkbox"> Buttons are easy to tap.</li>
+<li><input disabled="" type="checkbox"> Important information is not communicated by color alone.</li>
+<li><input disabled="" type="checkbox"> Images have suitable sizing; important images have semantic descriptions where appropriate.</li>
+<li><input disabled="" type="checkbox"> The screen is checked on a narrower layout or second device size.</li>
+<li><input disabled="" type="checkbox"> Content can scroll without overflow.</li>
+</ul>
+<h2 id="code-and-maintainability"><a class="header" href="#code-and-maintainability">Code and maintainability</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> Names describe the purpose of values/functions/widgets.</li>
+<li><input disabled="" type="checkbox"> Repeated UI is extracted when it meaningfully reduces duplication.</li>
+<li><input disabled="" type="checkbox"> <code>build()</code> describes UI and does not initiate repeated API requests.</li>
+<li><input disabled="" type="checkbox"> Models, services, and UI responsibilities are reasonably separated.</li>
+<li><input disabled="" type="checkbox"> At least one meaningful behavior has been tested manually or with a small automated test.</li>
+</ul>
+<h2 id="data-and-security"><a class="header" href="#data-and-security">Data and security</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> Network failures and invalid responses do not crash the main flow.</li>
+<li><input disabled="" type="checkbox"> Null/optional values are handled intentionally.</li>
+<li><input disabled="" type="checkbox"> Supabase policies match the intended access.</li>
+<li><input disabled="" type="checkbox"> No password, token, private key, or service-role key is committed.</li>
+<li><input disabled="" type="checkbox"> Sample/demo data does not expose a real person’s private information.</li>
+</ul>
+<h2 id="repository"><a class="header" href="#repository">Repository</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"> Project source and run instructions are in GitHub.</li>
+<li><input disabled="" type="checkbox"> README states purpose, features, prerequisites, setup, and run commands.</li>
+<li><input disabled="" type="checkbox"> Screenshots show the current app.</li>
+<li><input disabled="" type="checkbox"> Known limitations are stated honestly.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="appendix-e-official-resource-library"><a class="header" href="#appendix-e-official-resource-library">Appendix E: Official Resource Library</a></h1>
+<p>Use these as authoritative references and follow links only when the current lesson needs them. Students should not be expected to read every resource cover to cover.</p>
+<h2 id="dart"><a class="header" href="#dart">Dart</a></h2>
+<ul>
+<li><a href="https://dartpad.dev/">DartPad online sandbox</a></li>
+<li><a href="https://dart.dev/language">Dart language tour</a></li>
+<li><a href="https://dart.dev/language/variables">Variables, <code>final</code>, and <code>const</code></a></li>
+<li><a href="https://dart.dev/language/functions">Functions</a></li>
+<li><a href="https://dart.dev/language/branches">Control flow</a></li>
+<li><a href="https://dart.dev/language/loops">Loops</a></li>
+<li><a href="https://dart.dev/language/classes">Classes</a></li>
+<li><a href="https://dart.dev/null-safety/understanding-null-safety">Null safety</a></li>
+<li><a href="https://dart.dev/language/async">Async</a></li>
+<li><a href="https://dart.dev/language/error-handling">Error handling</a></li>
+<li><a href="https://dart.dev/libraries/dart-core">Core libraries / collections</a></li>
+</ul>
+<h2 id="flutter-foundations"><a class="header" href="#flutter-foundations">Flutter foundations</a></h2>
+<ul>
+<li><a href="https://docs.flutter.dev/get-started/install">Install Flutter</a></li>
+<li><a href="https://docs.flutter.dev/learn/pathway/tutorial">Flutter learning pathway</a></li>
+<li><a href="https://docs.flutter.dev/get-started/fundamentals">Flutter fundamentals</a></li>
+<li><a href="https://docs.flutter.dev/tools/hot-reload">Hot reload</a></li>
+<li><a href="https://docs.flutter.dev/ui/layout">Flutter layouts</a></li>
+<li><a href="https://docs.flutter.dev/ui/layout/constraints">Layout constraints</a></li>
+<li><a href="https://docs.flutter.dev/ui/assets/assets-and-images">Assets and images</a></li>
+<li><a href="https://docs.flutter.dev/ui/navigation">Navigation</a></li>
+<li><a href="https://docs.flutter.dev/cookbook/forms/validation">Form validation</a></li>
+<li><a href="https://docs.flutter.dev/ui/accessibility">Accessibility</a></li>
+<li><a href="https://docs.flutter.dev/ui/animations/implicit-animations">Implicit animations</a></li>
+</ul>
+<h2 id="data-and-architecture"><a class="header" href="#data-and-architecture">Data and architecture</a></h2>
+<ul>
+<li><a href="https://docs.flutter.dev/cookbook/networking/fetch-data">Fetch data from the internet</a></li>
+<li><a href="https://docs.flutter.dev/data-and-backend/serialization/json">JSON and serialization</a></li>
+<li><a href="https://docs.flutter.dev/app-architecture/guide">Flutter app architecture</a></li>
+<li><a href="https://docs.flutter.dev/cookbook/persistence">Flutter persistence cookbook</a></li>
+<li><a href="https://supabase.com/docs/guides/getting-started/quickstarts/flutter">Supabase Flutter quickstart</a></li>
+<li><a href="https://supabase.com/docs/guides/database/postgres/row-level-security">Supabase Row Level Security</a></li>
+</ul>
+<h2 id="testing-and-tools"><a class="header" href="#testing-and-tools">Testing and tools</a></h2>
+<ul>
+<li><a href="https://docs.flutter.dev/testing/overview">Flutter testing overview</a></li>
+<li><a href="https://docs.flutter.dev/cookbook/testing/unit/introduction">Unit testing</a></li>
+<li><a href="https://docs.flutter.dev/cookbook/testing/widget/introduction">Widget testing</a></li>
+<li><a href="https://docs.flutter.dev/tools/devtools">Flutter DevTools</a></li>
+<li><a href="https://rust-lang.github.io/mdBook/">mdBook guide</a></li>
+<li><a href="https://rust-lang.github.io/mdBook/format/summary.html">mdBook SUMMARY.md format</a></li>
+</ul>
+<h2 id="use-policy"><a class="header" href="#use-policy">Use policy</a></h2>
+<p>Official documentation can change. Before a cohort begins, check the linked pages, refresh any package commands, and run code examples. If an official tutorial introduces more concepts than students have learned, preselect the necessary excerpt rather than sending beginners into an entire documentation tree.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="appendix-f-glossary"><a class="header" href="#appendix-f-glossary">Appendix F: Glossary</a></h1>
+<ul>
+<li><strong>API:</strong> an interface that lets one program request functionality or data from another.</li>
+<li><strong>Argument:</strong> a value supplied when calling a function.</li>
+<li><strong>Authentication:</strong> checking who a user is.</li>
+<li><strong>Authorization:</strong> deciding what an authenticated identity may do.</li>
+<li><strong>Backend:</strong> the server-side systems and services an app communicates with.</li>
+<li><strong>Build method:</strong> in Flutter, the method that describes the widget subtree for the current inputs/state.</li>
+<li><strong>Class:</strong> a definition that describes the data and behavior of a kind of object.</li>
+<li><strong>Collection:</strong> a structure that stores multiple values, such as a list or map.</li>
+<li><strong>Constructor:</strong> code used to create and initialize an object.</li>
+<li><strong>Dart:</strong> the programming language used by Flutter.</li>
+<li><strong>Debugging:</strong> locating and correcting the cause of unexpected behavior.</li>
+<li><strong>Function:</strong> a reusable unit of code that can take inputs and produce a result or effect.</li>
+<li><strong>Future:</strong> Dart’s representation of a value or error that becomes available later.</li>
+<li><strong>JSON:</strong> a text format commonly used to exchange structured data.</li>
+<li><strong>Model:</strong> a Dart representation of data used by the application.</li>
+<li><strong>Null safety:</strong> Dart’s type-system features that make optional/missing values explicit.</li>
+<li><strong>Parameter:</strong> a named input slot declared by a function.</li>
+<li><strong>Repository:</strong> a boundary that represents a source of application data; introduced only at a beginner level here.</li>
+<li><strong>RLS (Row Level Security):</strong> database policies that control which rows a request may access or modify.</li>
+<li><strong>Service:</strong> code that communicates with an external system, such as an HTTP API.</li>
+<li><strong>State:</strong> values that can change while an application runs and affect what it displays or does.</li>
+<li><strong>Widget:</strong> an immutable description/configuration of a piece of Flutter UI.</li>
+<li><strong>Widget tree:</strong> the parent-child hierarchy of widgets that describes the UI.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

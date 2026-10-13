@@ -1,0 +1,25 @@
+# Appendix F: Glossary
+
+- **API:** an interface that lets one program request functionality or data from another.
+- **Argument:** a value supplied when calling a function.
+- **Authentication:** checking who a user is.
+- **Authorization:** deciding what an authenticated identity may do.
+- **Backend:** the server-side systems and services an app communicates with.
+- **Build method:** in Flutter, the method that describes the widget subtree for the current inputs/state.
+- **Class:** a definition that describes the data and behavior of a kind of object.
+- **Collection:** a structure that stores multiple values, such as a list or map.
+- **Constructor:** code used to create and initialize an object.
+- **Dart:** the programming language used by Flutter.
+- **Debugging:** locating and correcting the cause of unexpected behavior.
+- **Function:** a reusable unit of code that can take inputs and produce a result or effect.
+- **Future:** Dart's representation of a value or error that becomes available later.
+- **JSON:** a text format commonly used to exchange structured data.
+- **Model:** a Dart representation of data used by the application.
+- **Null safety:** Dart's type-system features that make optional/missing values explicit.
+- **Parameter:** a named input slot declared by a function.
+- **Repository:** a boundary that represents a source of application data; introduced only at a beginner level here.
+- **RLS (Row Level Security):** database policies that control which rows a request may access or modify.
+- **Service:** code that communicates with an external system, such as an HTTP API.
+- **State:** values that can change while an application runs and affect what it displays or does.
+- **Widget:** an immutable description/configuration of a piece of Flutter UI.
+- **Widget tree:** the parent-child hierarchy of widgets that describes the UI.

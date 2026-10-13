@@ -1,0 +1,14 @@
+[book]
+title = "Building Mobile Apps with Dart & Flutter"
+authors = ["Bootcamp Teaching Team"]
+language = "en"
+src = "src"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+smart-punctuation = true
+
+[output.html.fold]
+enable = true
+level = 1
